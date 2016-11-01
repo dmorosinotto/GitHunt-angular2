@@ -49,6 +49,6 @@ export class RepoInfoComponent implements OnInit {
     this.apollo.query({
       query: commentQuery,
       variables: { repoFullName },
-    });
+    }).subscribe();
   }
 }

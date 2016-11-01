@@ -4,6 +4,8 @@ import {Angular2Apollo, ApolloQueryObservable} from 'angular2-apollo';
 import {Subscription} from 'rxjs/Subscription';
 import {Subject} from 'rxjs/Subject';
 
+import 'rxjs/add/operator/toPromise';
+
 import {OnVoteEvent} from './feed-entry.component';
 import {feedQuery, voteInfoFragment, voteMutation} from './feed.model';
 
@@ -59,7 +61,7 @@ export class FeedComponent implements OnInit, OnDestroy {
         repoFullName: event.repoFullName,
         type: event.type,
       },
-    });
+    }).toPromise();
   }
 
   public fetchMore(): void {
